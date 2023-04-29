@@ -41,4 +41,13 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation project(':sources:main')
+    implementation project(':sources:core')
+    implementation project(':sources:assets')
+    implementation project(':sources:characters_screen')
+    implementation project(':sources:tree_screen')
+    implementation project(':sources:potions_screen')
+    implementation project(':sources:core_ui')
+
 }

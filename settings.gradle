@@ -14,3 +14,13 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Harry Potter"
 include ':app'
+include ':sources'
+include ':sources:assets'
+include ':sources:core'
+include ':sources:core_api'
+include ':sources:core_impl'
+include ':sources:main'
+include ':sources:characters_screen'
+include ':sources:potions_screen'
+include ':sources:core_ui'
+include ':sources:tree_screen'

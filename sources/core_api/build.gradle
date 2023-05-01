@@ -44,4 +44,5 @@ dependencies {
 
     implementation retrofit
 
+    implementation dagger
 }

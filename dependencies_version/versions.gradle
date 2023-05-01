@@ -4,8 +4,12 @@ ext {
     daggerVersion = '2.42'
     roomVersion = '2.5.1'
     glideVersion = '4.15.1'
+    okHttpVersion = '4.9.0'
 
     retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     jsr330 = "javax.inject:javax.inject:$jsr330Version"
     dagger = "com.google.dagger:dagger:$daggerVersion"
     daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"

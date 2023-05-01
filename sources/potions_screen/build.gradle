@@ -30,6 +30,8 @@ android {
     }
 }
 
+apply from:"$project.rootDir/dependencies_version/versions.gradle"
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'

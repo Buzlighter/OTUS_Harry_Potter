@@ -14,7 +14,7 @@ data class Character(val id: String,
                      val ancestry: String,
                      val eyeColour: String,
                      val hairColour: String,
-                     val wand: List<WandAttr>,
+                     val wand: WandAttr,
                      val patronus: String,
                      val hogwartsStudent: Boolean,
                      val hogwartsStaff: Boolean,
@@ -25,4 +25,4 @@ data class Character(val id: String,
 @Parcelize
 data class WandAttr(val wood: String,
                     val core: String,
-                    val length: Int): Parcelable
+                    val length: Double): Parcelable

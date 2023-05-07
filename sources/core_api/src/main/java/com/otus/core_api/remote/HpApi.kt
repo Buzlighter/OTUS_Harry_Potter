@@ -4,6 +4,6 @@ import retrofit2.http.GET
 import com.otus.core_api.dto.Character
 
 interface HpApi {
-    @GET
-    fun getAllCharacters(): List<Character>
+    @GET("/api/characters")
+    suspend fun getAllCharacters(): List<Character>
 }

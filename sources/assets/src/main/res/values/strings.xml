@@ -2,4 +2,6 @@
     <string name="characters">Characters</string>
     <string name="tree">Family tree</string>
     <string name="potions">Potions</string>
+
+    <string name="name">name:</string>
 </resources>

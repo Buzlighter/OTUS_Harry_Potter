@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_characters"
+        android:icon="@drawable/menu_ic_characters"
+        android:title="@string/characters" />
+
+    <item
+        android:id="@+id/menu_tree"
+        android:icon="@drawable/menu_ic_family_tree"
+        android:title="@string/tree" />
+
+    <item
+        android:id="@+id/menu_potions"
+        android:icon="@drawable/menu_ic_potions"
+        android:title="@string/potions"/>
+
+</menu>

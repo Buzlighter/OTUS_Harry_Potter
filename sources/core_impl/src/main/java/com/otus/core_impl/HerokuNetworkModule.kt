@@ -36,7 +36,6 @@ class HerokuNetworkModule {
             .build()
     }
 
-
     @Provides
     fun provideHerokuApi(@Heroku retrofit: Retrofit): HerokuApi {
         return retrofit.create(HerokuApi::class.java)

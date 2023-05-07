@@ -27,7 +27,6 @@ class HpNetworkModule {
             .build()
     }
 
-
     @Singleton
     @Provides
     @Hp
@@ -40,13 +39,9 @@ class HpNetworkModule {
             .build()
     }
 
-
     @Provides
     fun provideHpApi(@Hp retrofit: Retrofit): HpApi {
         return retrofit.create(HpApi::class.java)
     }
-
-
-
 }
 

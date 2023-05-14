@@ -47,7 +47,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     api project(':sources:core')
+    implementation project(':sources:assets')
 
+    implementation fragmentKtx
     implementation dagger
     kapt daggerCompiler
+    implementation glide
 }

@@ -36,6 +36,11 @@ class PotionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.potionView.setIngredientsQuantity(4)
+
+        binding.fillBtn.setOnClickListener {
+            binding.potionView.startFillingAnimation()
+        }
     }
 
     override fun onDestroyView() {

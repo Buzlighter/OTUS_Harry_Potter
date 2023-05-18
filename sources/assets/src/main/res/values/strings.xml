@@ -5,4 +5,7 @@
 
     <string name="name">name:</string>
     <string name="hint_name">Name</string>
+    <string name="elixir">Elixir</string>
+    <string name="cook">Cook</string>
+    <string name="next_elixir">Next Elixir</string>
 </resources>

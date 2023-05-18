@@ -10,4 +10,6 @@
     <color name="grey">#808080</color>
     <color name="green">#00FF00</color>
     <color name="light_grey">#D3D3D3</color>
+    <color name="light_paper">#E0C9A6</color>
+    <color name="aged_paper">#E8DCB8</color>
 </resources>

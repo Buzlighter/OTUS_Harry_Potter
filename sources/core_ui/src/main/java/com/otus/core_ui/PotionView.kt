@@ -57,10 +57,10 @@ class PotionView @JvmOverloads constructor(
         }
 
         startAnglePotionAnim.addUpdateListener { startAnglePotion = it.animatedValue as Float }
-        sweepAnglePotionAnim.addUpdateListener {
-            sweepAnglePotion = it.animatedValue as Float
-            pauseFillingAnimation()
-        }
+//        sweepAnglePotionAnim.addUpdateListener {
+//            sweepAnglePotion = it.animatedValue as Float
+//            pauseFillingAnimation()
+//        }
 
         fillingAnimSet.apply {
             duration = durationOfFillingAnim
@@ -120,7 +120,11 @@ class PotionView @JvmOverloads constructor(
 
 
     private fun drawPotion(canvas: Canvas) {
-        invalidate()
+        sweepAnglePotionAnim.addUpdateListener {
+            invalidate()
+            sweepAnglePotion = it.animatedValue as Float
+            pauseFillingAnimation()
+        }
 
         potionPath.arcTo(midX - flaskRadius,
             height - 2 * flaskRadius,
@@ -151,5 +155,12 @@ class PotionView @JvmOverloads constructor(
     fun setIngredientsQuantity(number: Int) {
         pauseLvl = 300F / number
         quantityOfIngredients = number
+    }
+
+    fun clearFlask() {
+        startAnglePotion = 90F
+        sweepAnglePotion = 0F
+
+        invalidate()
     }
 }

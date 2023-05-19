@@ -2,15 +2,18 @@ package com.otus.core_ui
 
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
+import android.animation.ValueAnimator.AnimatorUpdateListener
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
-import androidx.core.animation.addPauseListener
+import androidx.core.animation.*
 import androidx.core.util.rangeTo
+import kotlinx.coroutines.delay
 import kotlin.math.cos
 
 class PotionView @JvmOverloads constructor(
@@ -52,15 +55,19 @@ class PotionView @JvmOverloads constructor(
 
         potionPaint.apply {
             isAntiAlias = true
-            color = Color.GREEN
+            color = Color.BLUE
             style = Paint.Style.FILL_AND_STROKE
         }
 
-        startAnglePotionAnim.addUpdateListener { startAnglePotion = it.animatedValue as Float }
-//        sweepAnglePotionAnim.addUpdateListener {
-//            sweepAnglePotion = it.animatedValue as Float
-//            pauseFillingAnimation()
-//        }
+        startAnglePotionAnim.addUpdateListener {
+            startAnglePotion = it.animatedValue as Float
+        }
+
+        sweepAnglePotionAnim.addUpdateListener {
+            invalidate()
+            sweepAnglePotion = it.animatedValue as Float
+            pauseFillingAnimation()
+        }
 
         fillingAnimSet.apply {
             duration = durationOfFillingAnim
@@ -114,18 +121,12 @@ class PotionView @JvmOverloads constructor(
 
         flaskPath.rLineTo(0F, -flaskNeckHeight)
         flaskPath.rLineTo(neckWidth, 0F)
+        flaskPath.close()
 
         canvas.drawPath(flaskPath, flaskPaint)
     }
 
-
     private fun drawPotion(canvas: Canvas) {
-        sweepAnglePotionAnim.addUpdateListener {
-            invalidate()
-            sweepAnglePotion = it.animatedValue as Float
-            pauseFillingAnimation()
-        }
-
         potionPath.arcTo(midX - flaskRadius,
             height - 2 * flaskRadius,
             midX + flaskRadius,
@@ -137,11 +138,15 @@ class PotionView @JvmOverloads constructor(
         canvas.drawPath(potionPath, potionPaint)
     }
 
+    /*
+    * Добавлен динамический postDelayed из-за того что fillingAnimSet.resume()
+    * может вызваться раньше fillingAnimSet.pause() и поэтому resume может не сработать */
     fun startFillingAnimation() {
-        if (fillingAnimSet.isPaused) {
-            fillingAnimSet.resume()
-        } else {
+        if (fillingAnimSet.isStarted.not()) {
             fillingAnimSet.start()
+        } else {
+            postDelayed({ fillingAnimSet.resume() },
+                durationOfFillingAnim / quantityOfIngredients)
         }
     }
 
@@ -160,7 +165,27 @@ class PotionView @JvmOverloads constructor(
     fun clearFlask() {
         startAnglePotion = 90F
         sweepAnglePotion = 0F
+        sweepAnglePotionAnim.cancel()
+        startAnglePotionAnim.cancel()
+        fillingAnimSet.cancel()
+        potionPath.rewind()
+        flaskPath.rewind()
+        potionPaint.color = Color.BLUE
 
+        invalidate()
+    }
+
+    fun succeed() {
+        if (fillingAnimSet.isStarted) {
+            potionPaint.color = Color.GREEN
+        }
+        invalidate()
+    }
+
+    fun failed() {
+        if (fillingAnimSet.isStarted) {
+            potionPaint.color = Color.RED
+        }
         invalidate()
     }
 }

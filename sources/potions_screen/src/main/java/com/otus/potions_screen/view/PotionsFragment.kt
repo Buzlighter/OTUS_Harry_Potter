@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.DragEvent
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -175,17 +176,18 @@ class PotionsFragment : Fragment() {
 
     private fun checkCookResult() {
         if (resultIngredientList == randomResultElixir.ingredients) {
+            binding.potionView.succeed()
 
         } else {
-
+            binding.potionView.failed()
         }
+        resultIngredientList.clear()
     }
 
     private val nextElixirClickListener = View.OnClickListener {
         binding.resultLayout.removeAllViews()
         binding.ingredientsLayout.removeAllViews()
         potionViewModel.getElixirs()
-
         binding.potionView.clearFlask()
     }
 
@@ -193,10 +195,10 @@ class PotionsFragment : Fragment() {
         override fun onChildViewAdded(parent: View?, child: View?) {
             binding.potionView.startFillingAnimation()
         }
-
         override fun onChildViewRemoved(parent: View?, child: View?) {
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

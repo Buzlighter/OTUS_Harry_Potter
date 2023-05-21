@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.view.DragEvent
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -177,7 +176,6 @@ class PotionsFragment : Fragment() {
     private fun checkCookResult() {
         if (resultIngredientList == randomResultElixir.ingredients) {
             binding.potionView.succeed()
-
         } else {
             binding.potionView.failed()
         }

@@ -48,8 +48,4 @@ class PotionsViewModel(
 
         return randomElixirList + selectedIngredientList
     }
-
-    fun isCookingResult(resultIngredients: List<Ingredient>, realIngredients: List<Ingredient> ): Boolean {
-        return resultIngredients == realIngredients
-    }
 }

@@ -33,6 +33,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    sourceSets {
+        test.resources.srcDirs += 'src/test/java/com/otus/potions_screen/resources'
+    }
 }
 
 apply from:"$project.rootDir/dependencies_version/versions.gradle"
@@ -47,6 +50,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
 
+    implementation coroutineTest
+    implementation mockito
+
     api project(':sources:core')
     implementation project(':sources:core_ui')
     implementation project(':sources:assets')
@@ -54,4 +60,5 @@ dependencies {
     implementation fragmentKtx
     implementation dagger
     kapt daggerCompiler
+    implementation gsonConverter
 }

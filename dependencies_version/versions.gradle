@@ -6,6 +6,9 @@ ext {
     glideVersion = '4.15.1'
     okHttpVersion = '4.9.0'
     fragmentKtxVersion = '1.5.7'
+    mockWebserverVersion = '4.9.0'
+    coroutineTestVersion = '1.6.0'
+    mockitoVersion = '4.0.0'
 
     retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
     okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
@@ -18,4 +21,7 @@ ext {
     roomCompiler = "androidx.room:room-compiler:$roomVersion"
     glide = "com.github.bumptech.glide:glide:$glideVersion"
     fragmentKtx = "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    mockWebserver = "com.squareup.okhttp3:mockwebserver:$mockWebserverVersion"
+    coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion"
+    mockito = "org.mockito.kotlin:mockito-kotlin:$mockitoVersion"
 }

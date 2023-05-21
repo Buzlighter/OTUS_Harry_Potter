@@ -46,6 +46,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    implementation mockWebserver
+    implementation coroutineTest
+    implementation mockito
+
     api project(':sources:core')
     implementation project(':sources:assets')
 
@@ -53,4 +57,7 @@ dependencies {
     implementation dagger
     kapt daggerCompiler
     implementation glide
+    implementation retrofit
+    implementation gsonConverter
+
 }

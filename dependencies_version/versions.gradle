@@ -1,0 +1,28 @@
+ext {
+    retrofitVersion = '2.9.0'
+    jsr330Version = '1'
+    daggerVersion = '2.42'
+    roomVersion = '2.5.1'
+    glideVersion = '4.15.1'
+    okHttpVersion = '4.9.0'
+    fragmentKtxVersion = '1.5.7'
+    mockWebserverVersion = '4.9.0'
+    coroutineTestVersion = '1.6.0'
+    mockitoVersion = '4.0.0'
+
+
+    retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    jsr330 = "javax.inject:javax.inject:$jsr330Version"
+    dagger = "com.google.dagger:dagger:$daggerVersion"
+    daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+    room = "androidx.room:room-runtime:$roomVersion"
+    roomCompiler = "androidx.room:room-compiler:$roomVersion"
+    glide = "com.github.bumptech.glide:glide:$glideVersion"
+    fragmentKtx = "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    mockWebserver = "com.squareup.okhttp3:mockwebserver:$mockWebserverVersion"
+    coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion"
+    mockito = "org.mockito.kotlin:mockito-kotlin:$mockitoVersion"
+}

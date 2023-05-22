@@ -1,0 +1,17 @@
+<resources>
+    <string name="characters">Characters</string>
+    <string name="tree">Family tree</string>
+    <string name="potions">Potions</string>
+
+    <string name="name">name:</string>
+    <string name="species">species:</string>
+    <string name="house">house:</string>
+    <string name="gender">gender:</string>
+    <string name="yearOfBirth">yearOfBirth:</string>
+    <string name="actor">actor:</string>
+
+    <string name="hint_name">Name</string>
+    <string name="elixir">Elixir</string>
+    <string name="cook">Cook</string>
+    <string name="next_elixir">Next Elixir</string>
+</resources>

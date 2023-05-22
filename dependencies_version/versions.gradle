@@ -10,6 +10,7 @@ ext {
     coroutineTestVersion = '1.6.0'
     mockitoVersion = '4.0.0'
 
+
     retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
     okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
     loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"

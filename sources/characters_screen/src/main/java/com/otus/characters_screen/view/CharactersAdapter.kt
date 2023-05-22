@@ -48,7 +48,15 @@ class CharactersAdapter(): RecyclerView.Adapter<CharactersAdapter.CharacterHolde
                 .apply(RequestOptions.bitmapTransform(RoundedCorners(50)))
                 .into(binding.avatar)
 
-            binding.name.text = charItem.name
+            binding.apply {
+                name.text = charItem.name
+                species.text = charItem.species
+                house.text = charItem.house
+                gender.text = charItem.gender
+                yearOfBirth.text = charItem.yearOfBirth.toString()
+                actor.text = charItem.actor
+            }
         }
+
     }
 }

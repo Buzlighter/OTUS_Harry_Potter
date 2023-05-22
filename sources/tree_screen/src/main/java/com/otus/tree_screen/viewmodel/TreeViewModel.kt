@@ -26,8 +26,8 @@ class TreeViewModel(
         }
     }
 
-    fun getNamesList(namesList: List<Character>): List<String> {
-        return namesList
+    fun getNamesList(charList: List<Character>): List<String> {
+        return charList
             .map { it.name.substringAfterLast(" ") }
             .distinct()
     }

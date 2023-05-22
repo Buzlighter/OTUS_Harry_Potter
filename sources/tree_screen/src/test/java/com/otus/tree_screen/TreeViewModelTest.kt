@@ -6,7 +6,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
 import org.mockito.kotlin.mock
 import com.otus.core_api.dto.Character
 import com.otus.core_api.dto.WandAttr
@@ -22,50 +21,14 @@ class TreeViewModelTest {
 
 
     companion object {
-        private lateinit var nameListMock: List<Character>
+        private lateinit var charListMock: List<Character>
 
         @BeforeClass
         @JvmStatic
         fun setData() {
-            nameListMock = listOf(
-                Character("8er", "Henry Jefferson", "", "",
-                    "", 1870, true, "", "",
-                    "", WandAttr("", "", 1.0), "",
-                    false, false, "", true, ""),
-
-                Character("1242df", "Ferral Lanwey", "", "",
-                    "", 1870, true, "", "",
-                    "", WandAttr("", "", 1.0), "",
-                    false, false, "", true, ""),
-
-                Character("af23as", "Johny Dawell", "", "",
-                    "", 1870, true, "", "",
-                    "", WandAttr("", "", 1.0), "",
-                    false, false, "", true, ""),
-
-                Character("2442rqeq", "Mitchel Lews", "", "",
-                    "", 1870, true, "", "",
-                    "", WandAttr("", "", 1.0), "",
-                    false, false, "", true, ""),
-
-                Character("8erds", "Terry Mac Millan", "", "",
-                    "", 1870, true, "", "",
-                    "", WandAttr("", "", 1.0), "",
-                    false, false, "", true, ""),
-
-                Character("2442rqeq", "Mitchel Lews", "", "",
-                    "", 1870, true, "", "",
-                    "", WandAttr("", "", 1.0), "",
-                    false, false, "", true, ""),
-
-                Character("324afd", "Daniel Mac Millan", "", "",
-                    "", 1870, true, "", "",
-                    "", WandAttr("", "", 1.0), "",
-                    false, false, "", true, "")
-            )
+            charListMock = MockFactory.getCharactersList()
         }
     }
-
 
     @Before
     fun setUp() {
@@ -76,7 +39,7 @@ class TreeViewModelTest {
     @Test
     fun `get only unique surnames`() {
         val expected = listOf("Jefferson", "Lanwey", "Dawell", "Lews", "Millan")
-        val actual = treeViewModel.getNamesList(nameListMock)
+        val actual = treeViewModel.getNamesList(charListMock)
 
         Assert.assertEquals(expected, actual)
     }
@@ -97,7 +60,7 @@ class TreeViewModelTest {
                 false, false, "", true, "")
         )
 
-        val actual = treeViewModel.getFamilyByName(nameListMock, chosenName)
+        val actual = treeViewModel.getFamilyByName(charListMock, chosenName)
 
         Assert.assertEquals(expected, actual)
     }
